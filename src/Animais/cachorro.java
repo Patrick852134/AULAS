@@ -2,8 +2,7 @@ package Animais;
 public class cachorro {
 
     //Attributes
-
-
+    static int numerosDeCachorros;
     private String nome;
     private String cor;
     private int altura;
@@ -24,6 +23,9 @@ public class cachorro {
         this.peso = peso;
         this.temanhoDoRabo = temanhoDoRabo;
         this.estadoDeEspirito = estadoDeEspirito;
+
+        numerosDeCachorros ++; //cade cachorro criadd add +1
+
     }
 
 
@@ -32,7 +34,15 @@ public class cachorro {
 
 
 
-    //metodos
+    //metodos getters/setters
+
+
+    public static int getNumerosDeCachorros() {
+        return numerosDeCachorros;
+    }
+    public static void setNumerosDeCachorros(int numerosDeCachorros) {
+        cachorro.numerosDeCachorros = numerosDeCachorros;
+    }
     public String getNome(){
         return this.nome;
     }
@@ -71,19 +81,13 @@ public class cachorro {
         this.estadoDeEspirito = estadoDeEspirito;
     }
 
-    public void latir() {
-        System.out.println("AU AU");
-    }
-
-    public String pegar() {
-        return "Bolinha";
-    }
+    public void come(){}
+    public void soar() {System.out.println("AU AU");}
+    public String pegar() {return "Bolinha";}
 
 
 
     public String interagir(String acao) {
-
-        //enum (estudar)
 
         switch (acao) {
             case "carinho": this.estadoDeEspirito = "Feliz"; break;
@@ -94,14 +98,11 @@ public class cachorro {
         return estadoDeEspirito;
 
     }
-    //        if (acao.equals("carinho")){
-//            this.estadoDeEspirito = "feliz";
-//        } else if (acao.equals("vai dormir")){
-//            this.estadoDeEspirito = "bravo";
-//        }else{
-//            this.estadoDeEspirito = "neutro";
-//        }
-//        return estadoDeEspirito;
 
-
+    @Override
+    public String toString() {
+        return "cachorro{" +
+                "nome='" + nome + '\'' +
+                '}';
+    }
 }
